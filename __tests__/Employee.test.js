@@ -6,30 +6,29 @@ test('Create employee object', () => {
     expect(emp.name).toBe('John');
     expect(emp.id).toEqual(1);
     expect(emp.email).toBe('John@email.com');
-    expect(emp.role).toBe('Employee');
 });
 
-test('getName returns Employee name'), () => {
+test('getName returns Employee name', () => {
     const emp = new Employee('John',1, 'John@email.com');
 
     expect(emp.getName()).toBe(emp.name);
 
-}
+})
 
-test('getId returns Employee id'), () => {
+test('getId returns Employee id', () => {
     const emp = new Employee('John',1, 'John@email.com');
     
-    expect(emp.getId()).toBe(emp.id.toString());
-}
+    expect(emp.getId()).toBe(emp.id);
+})
 
-test('getEmail returns Employee email'), () => {
+test('getEmail returns Employee email', () => {
     const emp = new Employee('John',1, 'John@email.com');
     
     expect(emp.getEmail()).toBe(emp.email);
-}
+})
 
-test('getRole returns Employee role'), () => {
+test('getRole returns Employee role', () => {
     const emp = new Employee('John',1, 'John@email.com');
     
-    expect(emp.getRole()).toBe(emp.role);
-}
+    expect(emp.getRole()).toBe('Employee');
+})
