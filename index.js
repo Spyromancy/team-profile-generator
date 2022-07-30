@@ -3,6 +3,8 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const fs = require('fs');
+const generateSite = require('./src/site-template');
+const {writeFile} = require('./src/file-builder');
 
 var manager;
 var engineers = [];
@@ -182,7 +184,7 @@ const createTeam = () => {
                     interns.push(new Intern(employeeData.name, employeeData.id, employeeData.email, employeeData.school))
                 }
                 else {
-                    engineers.push(new Engineer(employeeData.name, employeeData.id, employeeData.email, employeeData.school))
+                    engineers.push(new Engineer(employeeData.name, employeeData.id, employeeData.email, employeeData.github))
                 }
                 if(employeeData.confirmAddMember){
                     return createTeam();
@@ -330,9 +332,13 @@ createManager()
         return createTeam();
     })
         .then( () => {
-            console.log(manager);
-            console.log(engineers);
-            console.log(interns);
+            return generateSite(manager,engineers,interns)
+        })
+        .then( (siteData) => {
+            return writeFile(siteData);
+        })
+        .then((writeResponse) => {
+            console.log(writeResponse);
         })
 
 
