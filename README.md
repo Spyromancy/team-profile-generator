@@ -18,7 +18,7 @@ The code can be installed by cloning the Git repository and running `npm install
 
 ## Usage
 
-The application will run in the command line with node and take in user input to create a website showing the team they built.
+The application will run in the command line with `node index.js` and will take in user input to create a website based on said input.
 
 
 ## Contributing
